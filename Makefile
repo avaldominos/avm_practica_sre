@@ -3,15 +3,15 @@ PYTHON 	= $(VENV)/bin/python3
 PIP		= $(VENV)/bin/pip
 
 # Variables used to configure docker images
-IMAGE_REGISTRY_DOCKERHUB 	?= avaldominos
+# IMAGE_REGISTRY_DOCKERHUB 	?= avaldominos
 IMAGE_REGISTRY_GHCR			?= ghcr.io
 IMAGE_REPO					= avm_practica_sre
-IMAGE_NAME					?= fast-api
+# IMAGE_NAME					?= fast-api
 VERSION						?= develop
 
 # Variables used to configure docker images registries to build and push
-IMAGE 				= $(IMAGE_REGISTRY_DOCKERHUB)/$(IMAGE_NAME):$(VERSION)
-IMAGE_LATEST 		= $(IMAGE_REGISTRY_DOCKERHUB)/$(IMAGE_NAME):latest
+# IMAGE 				= $(IMAGE_REGISTRY_DOCKERHUB)/$(IMAGE_NAME):$(VERSION)
+# IMAGE_LATEST 		= $(IMAGE_REGISTRY_DOCKERHUB)/$(IMAGE_NAME):latest
 IMAGE_GHCR			= $(IMAGE_REGISTRY_GHCR)/$(IMAGE_REPO)/$(IMAGE_NAME):$(VERSION)
 IMAGE_GHRC_LATEST	= $(IMAGE_REGISTRY_GHCR)/$(IMAGE_REPO)/$(IMAGE_NAME):latest
 
@@ -34,11 +34,11 @@ $(VENV)/bin/activate: requirements.txt
 
 .PHONY: docker-build
 docker-build: ## Build image
-	docker build -t $(IMAGE) -t $(IMAGE_LATEST) -t $(IMAGE_GHCR) -t $(IMAGE_GHRC_LATEST) .
-
+	# docker build -t $(IMAGE) -t $(IMAGE_LATEST) -t $(IMAGE_GHCR) -t $(IMAGE_GHRC_LATEST) .
+	docker build -t $(IMAGE_GHCR) -t $(IMAGE_GHRC_LATEST) .
 .PHONY: publish
 publish: docker-build ## Publish image
-	docker push $(IMAGE)
-	docker push $(IMAGE_LATEST)
+	# docker push $(IMAGE)
+	# docker push $(IMAGE_LATEST)
 	docker push $(IMAGE_GHCR)
 	docker push $(IMAGE_GHRC_LATEST)
