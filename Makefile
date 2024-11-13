@@ -6,7 +6,7 @@ PIP		= $(VENV)/bin/pip
 # IMAGE_REGISTRY_DOCKERHUB 	?= avaldominos
 IMAGE_REGISTRY_GHCR			?= ghcr.io
 IMAGE_REPO					= avm_practica_sre
-# IMAGE_NAME					?= fast-api
+IMAGE_NAME					?= fast-api
 VERSION						?= develop
 
 # Variables used to configure docker images registries to build and push
