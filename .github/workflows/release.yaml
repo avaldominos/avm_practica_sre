@@ -33,4 +33,5 @@ jobs:
       - name: Build and push Docker image
         run: make publish
         env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
           VERSION: ${{ steps.get_version.outputs.VERSION }}
