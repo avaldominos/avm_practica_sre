@@ -53,6 +53,6 @@ class SimpleServer:
         """Implement bye endpoint"""
         # Increment counter used for register the total number of calls in the webserver
         REQUESTS.inc()
-        # Increment counter used for register the total number of calls in the main endpoint
+        # Increment counter used for register the total number of calls in the bye endpoint
         BYE_ENDPOINT_REQUESTS.inc()
         return {"msg": "Bye Bye"}
